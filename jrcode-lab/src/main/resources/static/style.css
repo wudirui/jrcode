@@ -1,0 +1,344 @@
+﻿@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a, img {
+    border: 0;
+}
+
+body { /*background-color:#edecec;*/
+    font-family: 微软雅黑;
+    /*background: #fff url(images/background.gif) repeat-x center 187px;*/
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    margin: 0;
+    width: 100%;
+    left: 0px;
+    height: auto;
+}
+
+/*头部开始*/
+#header {
+    height: 100px;
+    width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+}
+
+#header_img {
+    margin-top: 20px;
+    height: 85px;
+    width: 830px;
+}
+
+#CE {
+    float: right;
+    width: 250px;
+    margin-top: -80px;
+}
+
+#CE div {
+    float: right;
+}
+
+#CE div a {
+    font-size: 13px;
+    height: 30px;
+    text-decoration: none;
+}
+
+/*头部结束*/
+/* 导航条*/
+.menu {
+    width: 1100px;
+    height: 40px;
+    font: "宋体" 16px;
+    margin: 0;
+    margin: 10px auto;
+}
+
+/* remove the bullets and set the margin and padding to zero for the unordered list */
+.menu ul {
+    z-index: 999;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+/* float the list so that the items are in a line and their position relative so that the drop down list will appear in the right place underneath each list item */
+.menu ul li {
+    z-index: 999;
+    float: left;
+    position: relative;
+}
+
+/* style the links to be 104px wide by 30px high with a top and right border 1px solid white. Set the background color and the font size. */
+.menu ul li a, .menu ul li a:visited {
+    z-index: 999;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 155.8px;
+    height: 40px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-width: 1px 1px 0 0;
+    background: #0055A6;
+    line-height: 40px;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* make the dropdown ul invisible */
+.menu ul li ul {
+    height: 40px;
+    display: none;
+}
+
+/* specific to non IE browsers */
+/* set the background and foreground color of the main menu li on hover */
+.menu ul li:hover a {
+    height: 40px;
+    color: #fff;
+    background: #0288dc;
+}
+
+/* make the sub menu ul visible and position it beneath the main menu list item */
+.menu ul li:hover ul {
+    display: block;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 105px;
+}
+
+/* style the background and foreground color of the submenu links */
+.menu ul li:hover ul li a {
+    display: block;
+    background: #0288dc;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* style the background and forground colors of the links on hover */
+.menu ul li:hover ul li a:hover {
+    color: #000;
+}
+
+/*banner开始*/
+#banner_ {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0px;
+    padding: 0px;
+    border: 0;
+}
+
+#banner_ div ol li {
+    list-style: none;
+}
+
+#div1_ {
+    width: 1100px;
+    height: 350px;
+    overflow: hidden;
+    margin: 10px auto;
+    position: relative;
+}
+
+#div1_ ol {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    height: 25px;
+    z-index: 100;
+}
+
+#div1_ ol li {
+    float: left;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    border: 1px solid #f47400;
+    margin: 2px;
+    cursor: pointer;
+    color: #f47400;
+    background: #fbf2d1;
+    margin-top: 2px;
+}
+
+#div1_ ol li.actived {
+    background: #ffb542;
+    font-weight: bold;
+    color: #FFF;
+    width: 22px;
+    height: 22px;
+    margin-top: 0;
+}
+
+#div1_ ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+#div1_ ul li {
+    width: 100%;
+    height: 350px;
+    margin: auto;
+}
+
+#div1_ ul li img {
+    width: 100%;
+    height: 350px;
+    margin: auto;
+    margin-left: -25px;
+    z-index: 100;
+}
+
+#Lay_banner {
+    width: 1100px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+#Lay_banner img {
+    width: 100%;
+    height: 300px;
+    margin-top: 5px;
+}
+
+/*banner结束*/
+/*新闻区开始*/
+.news_ {
+    width: 1100px;
+    margin: auto;
+    min-height: 350px;
+}
+
+.news_1 {
+    float: left;
+}
+
+#content_ {
+    width: 1100px;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 30px;
+}
+
+.index-link {
+    font-size: 12px;
+    width: 1100px;
+    height: 40px;
+    margin: 10px auto;
+}
+
+.index-link div {
+    width: 1100px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.index-link div table {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.index-link div table tr {
+    text-align: center
+}
+
+.index-link div table tr td {
+    width: 100px;
+}
+
+#footer {
+    min-height: 100px;
+    background-color: #D0C5BA;
+    width: 100%;
+    margin: 5px auto;
+}
+
+#footer div {
+    font-size: 12px;
+    margin: 0 auto;
+    padding-top: 5px;
+    position: relative;
+    width: 1100px;
+}
+
+/*#footer div div#connect {
+float: left;
+padding: 0;
+width: 250px;
+}
+
+#footer div div#connect a {
+display: inline-block;
+padding-right: 10px;
+}*/
+
+#footer div .section {
+    padding: 0;
+    width: 1100px;
+}
+
+#footer div .section ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    position: absolute;
+    top: 0px;
+    margin-left: 330px;
+}
+
+#footer div .section ul li {
+    border-left: 1px solid #6886a0;
+    float: left;
+    padding: 0 5px;
+}
+
+#footer div .section ul li.last {
+    border-right: 0;
+}
+
+#footer div .section ul li:first-child {
+    border: none;
+}
+
+#footer div .section ul li a {
+    color: black;
+    display: block;
+    height: 12px;
+    line-height: 10px;
+    text-decoration: none;
+}
+
+#footer div .section ul li a:hover {
+    color: #fff;
+}
+
+.section_friendship {
+    margin-top: 40px;
+    width: 1100px;
+}
+
+#footer div .section p {
+    color: black;
+    margin: 20px;
+    padding: 20px 3px 0 0;
+    text-align: center;
+}
+

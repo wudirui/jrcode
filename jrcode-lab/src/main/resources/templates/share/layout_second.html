@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="~{share/layout_first}">
+<body>
+<header>
+    <meta charset="UTF-8"/>
+    <titie>概况</titie>
+</header>
+<div layout:fragment="content_first">
+    <!--banner开始-->
+    <div id="Lay_banner">
+        <div>
+            <img th:src="${slideshow.imgStr}"/>
+        </div>
+    </div>
+    <!--banner结束-->
+    <div id="content_" style="min-height:700px;">
+        <div id="div5">
+            <div class="left">
+                <div class="div1">
+                    <div class="div2">
+                        <div class="lmtj"></div>
+                        <div class="div4" th:text="${pMenuName}"></div>
+                    </div>
+                    <div class="div3">
+                        <ul>
+                            <li th:each="menuSubs:${menuSubs}">
+                                <a th:href="${menuSubs.url}" th:text="${menuSubs.name}"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <p>您现在所在的位置：
+                    <span th:each="item:${currPositions}">
+                         <a th:href="${item.value}" th:text="${item.key}"></a> >
+                    </span>
+                    正文
+                </p>
+                <section layout:fragment="content_second"><p>Error: View doesn't display into layout !</p></section>
+            </div>
+        </div>
+        <div style="clear:both;"></div> <!-- 在外层div的底部加一个空的div标签，并设置样式为clear:both; -->
+    </div>
+
+</div>
+</body>
+</html>

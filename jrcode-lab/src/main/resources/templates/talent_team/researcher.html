@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="~{share/layout_second}">
+<head>
+    <meta charset="utf-8">
+    <title>在研人员</title>
+</head>
+<body>
+<div layout:fragment="content_second" id="divfirst">
+    <div th:utext="${htmlContent}"></div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>年级</th>
+            <th>学历</th>
+        </tr>
+        </thead>
+        <tr th:each="item:${students}">
+            <td th:text="${itemStat.index+1}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.deptName}"></td>
+            <td th:text="${item.jobName}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

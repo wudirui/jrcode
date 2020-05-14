@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorator="~{share/layout_second}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>下载中心</title>
+</head>
+<body>
+
+<div layout:fragment="content_second">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>标题</th>
+            <th>文件名称</th>
+            <th>创建时间</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tr th:each="file:${fileList}">
+            <td th:text="${fileStat.index+1}"></td>
+            <td th:text="${file.title}"></td>
+            <td th:text="${file.filename}"></td>
+            <td th:text="${file.createTime}"></td>
+            <td><a href="javascript:void(0)" th:id="${'down_'+file.id}">下载</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

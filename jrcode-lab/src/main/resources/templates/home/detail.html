@@ -1,0 +1,77 @@
+﻿<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="~{share/layout_first}">
+<head>
+    <meta content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>欢迎来到JRCODE</title>
+</head>
+<body>
+
+<div layout:fragment="content_first">
+    <div class="news_" style="min-height: 700px">
+
+        <p>您现在所在的位置：
+            <span th:each="item:${currPositions}">
+                <a th:href="${item.value}" th:text="${item.key}"></a> >
+            </span>
+
+        </p>
+
+        <h4 style="text-align: center" th:text="${htmlContent.getTitle()}"></h4>
+        <div th:utext="${htmlContent.getContent()}">
+
+        </div>
+    </div>
+</div>
+<!--新闻区结束-->
+
+<!--友情链接开始-->
+<div class="index-link">
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <a href="http://www.bit.edu.cn" target="_blank" title="北京理工大学"><img src="/images/index/6.jpg"/></a>
+                </td>
+                <td>
+                    <a href="http://grd.bit.edu.cn" target="_blank" title="研究生院"><img
+                            src="/images/index/3.png"/></a>
+                </td>
+                <td>
+                    <a href="http://lib.bit.edu.cn" target="_blank" title="图书馆"><img src="/images/index/2.png"/></a>
+                </td>
+                <td>
+                    <a href="http://grdms.bit.edu.cn/yjs/login.jsp" target="_blank" title="研究生管理系统"><img
+                            src="/images/index/4.jpg"/></a></a></td>
+                <td>
+                    <a href="http://www.sipo.gov.cn" target="_blank" title="中华人民共和国国家知识产权"><img
+                            src="/images/index/4.png"/></a></td>
+                <td>
+                    <a href="http://www.opticsinfobase.org/china" target="_blank" title="美国光学学会"><img
+                            src="/images/index/1.png"/></a></td>
+                <td>
+                    <a href="http://www.cuhk.edu.hk/chinese/aboutus/university-intro.html" target="_blank"
+                       title="香港中文大学"><img src="/images/index/5.jpg"/></a></td>
+                <td>
+                    <a href="http://www.cnki.net" target="_blank" title="中知网"><img src="/images/index/8.jpg"/></a>
+                </td>
+                <td>
+                    <a href="http://www.sciencedirect.com" target="_blank" title="sciencedirect"><img
+                            src="/images/index/9.jpg"/></a></td>
+
+                <td>
+                    <a href="http://www.sciencemag.org" target="_blank" title="science"><img
+                            src="/images/index/7.jpg"/></a>
+                </td>
+                <td>
+                    <a href="http://www.nature.com/nphoton/index.html" target="_blank" title="nature"><img
+                            src="/images/index/10.png"/></a></td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+<!--友情链接结束-->
+</div>
+</body>
+</html>
+

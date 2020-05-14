@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE" th:text="欢迎来到JRCODE"></title>
+
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <script src="/scripts/jquery.js"></script>
+    <link href="/style.css" rel="stylesheet"/>
+    <link href="/nav.css" rel="stylesheet"/>
+    <link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <script src="/scripts/move.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".div2").click(function () {
+                $(this).next("div").slideToggle("quick")
+                    .siblings(".div3:visible").slideUp("quick");
+            });
+
+
+            /** 下载文档功能 */
+            $("a[id^='down_']").click(function () {
+                /** 得到需要下载的文档的id */
+                var id = this.id.replace("down_", "");
+                /** 下载该文档 */
+
+                //window.location = "/file/download?id=" + id;
+                // $.ajax({
+                //     url: "/file/download",
+                //     async: false,
+                //     type: "POST",
+                //     data: {"id": id}
+                // })
+                $.download("/file/download","post",id);
+            })
+        });
+
+
+        jQuery.download = function (url, method,id) {
+            jQuery('<form action="' + url + '" method="' + (method) + '">' +  // action请求路径及推送方法
+                '<input type="text" name="id" value="' + id + '"/>' +
+                '</form>')
+                .appendTo('body').submit().remove();
+        };
+    </script>
+</head>
+
+<body>
+<!--头部开始-->
+<div id="header">
+    <div id="header_img">
+        <a href="/home/index">
+            <img src="/images/logo.gif"/>
+        </a>
+    </div>
+    <div id="CE">
+        <div>
+            <!--<a href="~/Person/Login" target="_blank">登录</a>-->
+            <!--<a>｜</a><a href="~/Person/Registe" target="_blank">登录</a>-->
+        </div>
+        <form action="/search" method="get">
+            <div style="margin-top: 10px;">
+                <div class="row" style="height: 30px">
+                    <div class="col-lg-6" style="height: 30px">
+                        <div class="input-group">
+                            <input type="text" name="req" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn" style="float: right">
+                                    <button class="btn btn-primary" type="submit">搜索</button>
+                                </span>
+                        </div>
+                        <!-- /input-group -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                </div>
+                <!-- /.row -->
+            </div>
+        </form>
+    </div>
+</div>
+<!--头部结束-->
+<!--nav开始-->
+<div class="menu">
+    <ul>
+        <li th:each="menu:${menus}">
+            <a class="hide" th:href="${menu.url}" th:text="${menu.name}"></a>
+            <ul>
+                <li th:each="menu_sub:${menu.menuSubs}">
+                    <a th:href="${menu_sub.url}" th:text="${menu_sub.name}"></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- clear the floats if required -->
+    <div class="clear"></div>
+</div>
+<!--nav结束-->
+<!--内容部分开始-->
+<div>
+    <section layout:fragment="content_first"><p>Error: View doesn't display into layout !</p></section>
+</div>
+<div class="clear"></div>
+<div style="display: none;" id="rocket-to-top">
+    <div style="opacity: 0; display: block;" class="level-2"></div>
+    <div class="level-3"></div>
+</div>
+<div id="footer">
+    <div>
+        <div class="section">
+            <ul>
+                <li th:each="menu:${menus}">
+                    <a class="hide" th:href="${menu.url}" th:text="${menu.name}"></a>
+                </li>
+            </ul>
+
+            <p>
+                京ICP备16005195号 &nbsp &nbsp
+                我们的电话010-68912565-19.&nbsp &nbsp
+                北京市海淀区中关村南大街5号，100081。
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

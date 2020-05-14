@@ -1,0 +1,167 @@
+﻿<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="~{share/layout_first}">
+<head>
+    <meta content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>欢迎来到JRCODE</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet"/>
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <link href="/style.css" rel="stylesheet"/>
+    <script src="/scripts/move.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            var oDiv = document.getElementById("div1_");
+            var aBtn = oDiv.getElementsByTagName("ol")[0].getElementsByTagName("li");
+            var oUl = oDiv.getElementsByTagName("ul")[0];
+            var now = 0;
+            for (var i = 0; i < aBtn.length; i++) {
+                aBtn[i].index = i;
+                aBtn[i].onclick = function () {
+                    now = this.index;
+                    tab();
+                }
+            }
+
+            function tab() {
+                for (var j = 0; j < aBtn.length; j++) {
+                    aBtn[j].className = "";
+                }
+                aBtn[now].className = 'actived';
+                move(oUl, {top: -350 * now});
+            }
+
+            function next() {
+                now++;
+                if (now == aBtn.length) {
+                    now = 0;
+                }
+                tab();
+            }
+
+            var timer = setInterval(next, 5000);
+            oDiv.onmouseover = function () {
+                clearInterval(timer);
+            };
+            oDiv.onmouseout = function () {
+                timer = setInterval(next, 5000)
+            }
+        }
+
+        function getLink(id) {
+            alert(id);
+        }
+    </script>
+</head>
+<body>
+
+
+<div layout:fragment="content_first">
+    <!--banner开始-->
+    <div id="banner_">
+        <div id="div1_">
+            <ol>
+                <span th:each="item:${slideshowOfHome}">
+                    <li class="actived" th:if="${item.getSort()==1}" th:text="${item.getSort()}"></li>
+                    <li th:if="${item.getSort()!=1}" th:text="${item.getSort()}"></li>
+                </span>
+
+            </ol>
+            <ul>
+                <li th:each="item:${slideshowOfHome}">
+                    <img th:src="${item.getImgStr()}"/>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--banner结束-->
+
+
+    <!--新闻区开始-->
+    <div class="news_">
+        <div class="news_1">
+            <table class="table" style="width: 640px">
+                <caption style="float: left">
+                    <a th:href="${stylePath}" style="text-decoration: none">
+                        <h4 th:text="${labStyle}">&nbsp;</h4>
+                    </a>
+                </caption>
+                <!--<tr>-->
+                <!--<td style="height: 220px; width: 200px;">-->
+                <!--<a href="~/Qiantai/NewsList?id=@item.Id">-->
+                <!--<img src="/images/style2.png"/>-->
+                <!--</a>-->
+                <!--</td>-->
+                <!--</tr>-->
+                <tr th:each="style:${labStylesList}">
+                    <td><a th:href="${stylePath}+'/'+${style.id}" th:text="${style.title}"></a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="news_1" style="width: 445px; float: right">
+            <table class="table" style="width: 445px">
+                <caption style="float: left">
+                    <a th:href="${newsPath}" style="text-decoration: none">
+                        <h4 th:text="${labNews}">&nbsp;</h4>
+                    </a>
+                </caption>
+
+                <tr th:each="news:${labNewsList}">
+                    <td><a th:href="${newsPath}+'/'+${news.id}" th:text="${news.title}"></a></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <!--新闻区结束-->
+
+    <!--友情链接开始-->
+    <div class="index-link">
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <a href="http://www.bit.edu.cn" target="_blank" title="北京理工大学"><img src="/images/index/6.jpg"/></a>
+                    </td>
+                    <td>
+                        <a href="http://grd.bit.edu.cn" target="_blank" title="研究生院"><img
+                                src="/images/index/3.png"/></a>
+                    </td>
+                    <td>
+                        <a href="http://lib.bit.edu.cn" target="_blank" title="图书馆"><img src="/images/index/2.png"/></a>
+                    </td>
+                    <td>
+                        <a href="http://grdms.bit.edu.cn/yjs/login.jsp" target="_blank" title="研究生管理系统"><img
+                                src="/images/index/4.jpg"/></a></a></td>
+                    <td>
+                        <a href="http://www.sipo.gov.cn" target="_blank" title="中华人民共和国国家知识产权"><img
+                                src="/images/index/4.png"/></a></td>
+                    <td>
+                        <a href="http://www.opticsinfobase.org/china" target="_blank" title="美国光学学会"><img
+                                src="/images/index/1.png"/></a></td>
+                    <td>
+                        <a href="http://www.cuhk.edu.hk/chinese/aboutus/university-intro.html" target="_blank"
+                           title="香港中文大学"><img src="/images/index/5.jpg"/></a></td>
+                    <td>
+                        <a href="http://www.cnki.net" target="_blank" title="中知网"><img src="/images/index/8.jpg"/></a>
+                    </td>
+                    <td>
+                        <a href="http://www.sciencedirect.com" target="_blank" title="sciencedirect"><img
+                                src="/images/index/9.jpg"/></a></td>
+
+                    <td>
+                        <a href="http://www.sciencemag.org" target="_blank" title="science"><img
+                                src="/images/index/7.jpg"/></a>
+                    </td>
+                    <td>
+                        <a href="http://www.nature.com/nphoton/index.html" target="_blank" title="nature"><img
+                                src="/images/index/10.png"/></a></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!--友情链接结束-->
+</div>
+</body>
+</html>
+
